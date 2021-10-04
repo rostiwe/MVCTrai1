@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/Layaut2.cshtml";
+}
+
+<form @*method="post"*@ action="GetToy">
+    <h2>Введите название игрушки</h2>
+    <input type="text" name="Name" />
+    @*<input type="text" name="Manufacturer"/>*@
+    <input type="submit" value="Найти" />
+</form>

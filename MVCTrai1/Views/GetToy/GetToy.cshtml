@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "GetToy";
+    Layout = "~/Views/Shared/Layaut2.cshtml";
+}
+@if (ViewBag.ToysSet == null)
+{
+    <h2>Нихера нет</h2>
+}
+else
+{
+    <div class="ontainer-fluid,">
+        <table class="table">
+            <tr>
+                <td><p>Id</p></td>
+                <td><p>Название</p></td>
+                <td><p>Производитель</p></td>
+                <td><p>Для кого</p></td>
+                <td><p>Цена</p></td>
+            </tr>
+            @foreach (var a in ViewBag.ToysSet)
+            {
+                <tr>
+                    <td><p>@a.ToyId</p></td>
+                    <td><p>@a.Name</p></td>
+                    <td><p>@a.Price</p></td>
+                    <td><p>@a.Manufacturer</p></td>
+                    <td><p>@a.Gender</p></td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="container-xxl">
+        <table class="table">
+            <tr>
+                <td><p>Id</p></td>
+                <td><p>Название</p></td>
+                <td><p>Производитель</p></td>
+                <td><p>Для кого</p></td>
+                <td><p>Цена</p></td>
+            </tr>
+            @foreach (var a in ViewBag.ToysSet)
+            {
+                <tr>
+                    <td><p>@a.ToyId</p></td>
+                    <td><p>@a.Name</p></td>
+                    <td><p>@a.Price</p></td>
+                    <td><p>@a.Manufacturer</p></td>
+                    <td><p>@a.Gender</p></td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="container-xl">
+        <table class="table">
+            <tr>
+                <td><p>Id</p></td>
+                <td><p>Название</p></td>
+                <td><p>Производитель</p></td>
+                <td><p>Для кого</p></td>
+                <td><p>Цена</p></td>
+            </tr>
+            @foreach (var a in ViewBag.ToysSet)
+            {
+                <tr>
+                    <td><p>@a.ToyId</p></td>
+                    <td><p>@a.Name</p></td>
+                    <td><p>@a.Price</p></td>
+                    <td><p>@a.Manufacturer</p></td>
+                    <td><p>@a.Gender</p></td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="container-sm">
+        <table class="table">
+            <tr>
+                <td><p>Id</p></td>
+                <td><p>Название</p></td>
+                <td><p>Производитель</p></td>
+                <td><p>Для кого</p></td>
+                <td><p>Цена</p></td>
+            </tr>
+            @foreach (var a in ViewBag.ToysSet)
+            {
+                <tr>
+                    <td><p>@a.ToyId</p></td>
+                    <td><p>@a.Name</p></td>
+                    <td><p>@a.Price</p></td>
+                    <td><p>@a.Manufacturer</p></td>
+                    <td><p>@a.Gender</p></td>
+                </tr>
+            }
+        </table>
+    </div>
+}
+
+
+
+

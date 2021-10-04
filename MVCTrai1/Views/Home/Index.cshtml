@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Домашняя страница";
+}
+<div>
+    <h3>Коллекция игрушек</h3>
+    <table>
+        <tr>
+            <td><p>Название</p></td>
+            <td><p>Производитель</p></td>
+            <td><p>Для кого</p></td>
+            <td><p>Цена</p></td>
+            <td></td>
+        </tr>
+        @foreach (var t in ViewBag.Toys)
+        {
+            <tr>
+                <td><p>@t.Name</p></td>
+                <td><p>@t.Manufacturer</p></td>
+                <td><p>@t.Gender</p></td>
+                <td><p>@t.Price</p></td>
+                <td><p><a href="/Home/Buy/@t.ToyId">Купить</a></p></td>
+            </tr>
+        }
+    </table>
+</div>
+<div>
+    <h3>Продажи</h3>
+    <table>
+        <tr>
+            <td><p>Продавец</p></td>
+            <td><p>Дата</p></td>
+            <td><p>Ид игрушки</p></td>
+        </tr>
+        @foreach (var t in ViewBag.purchases)
+        {
+            <tr>
+                <td><p>@t.Customer</p></td>
+                <td><p>@t.Date</p></td>
+                <td><p>@t.ToyId</p></td>
+            </tr>
+        }
+    </table>
+</div>

@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Покупка игрушки";
+}
+<div>
+    <form method="post">
+        <input type="hidden" value="ViewBag.ToyId" name="ToyId"/>
+        <table>
+            <tr>
+                <td><p>Имя покупателя</p></td>
+                <td><p><input type="text" name="Customer"></p></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Отправить"></td>
+                <td></td>
+            </tr>
+            @*<tr>
+            <td><p></p></td>
+            <td><p></p></td>
+            <td><p></p></td>
+        </tr>
+        <tr>
+            <td><p></p></td>
+            <td><p></p></td>
+            <td><p></p></td>
+        </tr>*@
+        </table>
+    </form>
+</div>
+
+
