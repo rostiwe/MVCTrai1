@@ -11,8 +11,27 @@ namespace MVCTrai1.Controllers
     public class HomeController : Controller
     {
         DBContext db = new DBContext();
+
+        public string GetCookies()
+        {
+            if (Request.Cookies["SomeString"] != null)
+                return Request.Cookies["SomeString"].Value;
+            return "Ничего нет";
+            // https://localhost:44366/Home/Shit
+        }
+        public FilePathResult GetFile(string str)
+        {
+            string File_path ="~/Files/" + str;
+            string File_type = "txt";
+            string File_name = str;
+            return File(File_path, File_type, "ТыГей.txt");
+            // https://localhost:44366/Home/GetFile?str=TextFile1.txt
+            //Есть ещё несколько типов File....Result
+        }
         public ActionResult Index()
         {
+            //Response.Cookies["SomeString"].Value = "I`am g... cookie";
+            //куки сохранятся
             ViewBag.Toys = db.Toys;
             ViewBag.purchases = db.purchases;
             return View();
@@ -42,18 +61,20 @@ namespace MVCTrai1.Controllers
             //    }
             //    return resoult +"Говна въебал? " + Request.Params.Count;
             //    //https://localhost:44366/Home/Multi2?i=4&j=5
-            //}
-            string resoult = "";
-            if (Request.Params["y"] == null)
-                resoult += "<p>y is Null</p>";
+            //}   
             int i = Int32.Parse(Request.Params["i"]);
             int j = Int32.Parse(Request.Params["j"]);
-            return resoult +"<h2>" + (i * j) + "</h2>";
+            string str = "<h2> Начальный URL - " + Request.Params["str"].ToString() + "</h2>";
+            string URLRefer = "";
+            if (HttpContext.Request.UrlReferrer != null)
+                URLRefer += HttpContext.Request.UrlReferrer;
+            return str+ "<h2>  URL ref -  " + URLRefer + "</h2>"+ "<h2> Конечный URL  " + HttpContext.Request.Url + "</h2>" + "<h2>" + (i * j) + "</h2>";
         }
         public ActionResult SomeURl()
         {
+            // https://localhost:44366/Home/SomeURl?i=4&j=5
             if (Request.Params.Count > 2)
-                return RedirectToAction("Multi2",new {i = Request.Params[0], j = Request.Params[1] });
+                return RedirectToAction("Multi2",new {i = Request.Params[0], j = Request.Params[1], str = HttpContext.Request.Url});
             return Redirect("/Home/GetOneIMG");
         }
 
